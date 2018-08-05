@@ -2,6 +2,7 @@ package com.blueoptima.kuber;
 
 
 import com.blueoptima.kuber.common.Aggregator;
+import com.blueoptima.kuber.common.AvgAggregator;
 import com.blueoptima.kuber.common.Converter;
 import com.blueoptima.kuber.pojo.CrawlRequest;
 import com.blueoptima.kuber.pojo.Currency;
@@ -19,7 +20,7 @@ public class KuberServiceImpl implements KubserService {
 
     public KuberServiceImpl() {
         this.timeSeries = new TimeSeriesDaoImpl();
-        this.defaultAggregator = null;
+        this.defaultAggregator = new AvgAggregator();
         this.converter = new Converter();
     }
 
