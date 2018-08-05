@@ -41,8 +41,11 @@ public class TimeSeriesDaoImpl implements TimeSeriesDao {
             NavigableMap<Long, CurrencyRate> map = new TreeMap<>();
             for (Map.Entry<Long, List<CurrencyRate>> entry : treeMap.tailMap(startTime).entrySet()) {
                 if (entry.getKey() <= endTime) {
-                    CurrencyRate requestCurrencyRate = entry.getValue().stream().filter(currencyRate -> id == currencyRate.getCurrency().getId()).collect(Collectors.toList()).get(0);
-                    map.put(entry.getKey(), requestCurrencyRate);
+                    for (CurrencyRate currencyRate : entry.getValue()) {
+                        if(currencyRate.getCurrency().getId()==id){
+                            map.put(entry.getKey(), currencyRate);
+                        }
+                    }
                 } else {
                     break;
                 }
