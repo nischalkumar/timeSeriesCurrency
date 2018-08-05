@@ -1,5 +1,9 @@
 package com.blueoptima.kuber;
 
+import com.blueoptima.kuber.common.Aggregator;
+import com.blueoptima.kuber.pojo.CrawlRequest;
+import com.blueoptima.kuber.pojo.CurrencyRate;
+
 import java.net.URI;
 import java.util.List;
 import java.util.Map;

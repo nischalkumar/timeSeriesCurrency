@@ -1,4 +1,6 @@
-package com.blueoptima.kuber;
+package com.blueoptima.kuber.common;
+
+import com.blueoptima.kuber.pojo.CurrencyRate;
 
 import java.util.Collection;
 

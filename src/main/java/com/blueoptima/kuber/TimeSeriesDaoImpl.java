@@ -1,5 +1,8 @@
 package com.blueoptima.kuber;
 
+import com.blueoptima.kuber.TimeSeriesDao;
+import com.blueoptima.kuber.pojo.CurrencyRate;
+
 import java.util.*;
 import java.util.stream.Collectors;
 

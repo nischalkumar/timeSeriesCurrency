@@ -1,5 +1,7 @@
 package com.blueoptima.kuber;
 
+import com.blueoptima.kuber.pojo.CurrencyRate;
+
 import java.util.List;
 import java.util.NavigableMap;
 

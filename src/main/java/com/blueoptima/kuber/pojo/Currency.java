@@ -1,4 +1,4 @@
-package com.blueoptima.kuber;
+package com.blueoptima.kuber.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
