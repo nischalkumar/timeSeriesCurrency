@@ -3,7 +3,7 @@ package com.blueoptima.kuber;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TimeSeriesDaoImpl implements TimeSeriesDao{
+public class TimeSeriesDaoImpl implements TimeSeriesDao {
     private final TreeMap<Long, List<CurrencyRate>> treeMap;
 
     public TimeSeriesDaoImpl() {
@@ -21,8 +21,8 @@ public class TimeSeriesDaoImpl implements TimeSeriesDao{
     public NavigableMap<Long, List<CurrencyRate>> getCurrencyInRange(long startTime, long endTime) {
         synchronized (this) {
             NavigableMap<Long, List<CurrencyRate>> map = new TreeMap<>();
-            for(Map.Entry<Long, List<CurrencyRate>> entry : treeMap.tailMap(startTime).entrySet()) {
-                if(entry.getKey()<=endTime) {
+            for (Map.Entry<Long, List<CurrencyRate>> entry : treeMap.tailMap(startTime).entrySet()) {
+                if (entry.getKey() <= endTime) {
                     map.put(entry.getKey(), entry.getValue());
                 } else {
                     break;
@@ -33,12 +33,12 @@ public class TimeSeriesDaoImpl implements TimeSeriesDao{
     }
 
     @Override
-    public Map<Long, CurrencyRate> getParticularCurrencyInRange(String id, long startTime, long endTime) {
+    public NavigableMap<Long, CurrencyRate> getParticularCurrencyInRange(int id, long startTime, long endTime) {
         synchronized (this) {
             NavigableMap<Long, CurrencyRate> map = new TreeMap<>();
-            for(Map.Entry<Long, List<CurrencyRate>> entry : treeMap.tailMap(startTime).entrySet()) {
-                if(entry.getKey()<=endTime) {
-                    CurrencyRate requestCurrencyRate = entry.getValue().stream().filter(currencyRate -> id.equals(currencyRate.getCurrency().getId())).collect(Collectors.toList()).get(0);
+            for (Map.Entry<Long, List<CurrencyRate>> entry : treeMap.tailMap(startTime).entrySet()) {
+                if (entry.getKey() <= endTime) {
+                    CurrencyRate requestCurrencyRate = entry.getValue().stream().filter(currencyRate -> id == currencyRate.getCurrency().getId()).collect(Collectors.toList()).get(0);
                     map.put(entry.getKey(), requestCurrencyRate);
                 } else {
                     break;

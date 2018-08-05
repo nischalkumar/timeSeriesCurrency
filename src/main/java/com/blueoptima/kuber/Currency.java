@@ -5,7 +5,9 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class Currency {
+public enum Currency {
+    rupee(1, "india", "rupee"),
+    dollar(2, "usa", "dollar");
     private final int id;
     private final String country;
     private final String name;

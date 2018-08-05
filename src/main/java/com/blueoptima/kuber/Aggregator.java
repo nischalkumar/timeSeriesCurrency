@@ -1,7 +1,7 @@
 package com.blueoptima.kuber;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface Aggregator {
-    CurrencyRate aggregate(List<CurrencyRate> currencyRates);
+    CurrencyRate aggregate(Collection<CurrencyRate> currencyRates);
 }

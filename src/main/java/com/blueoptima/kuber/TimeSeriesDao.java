@@ -1,8 +1,6 @@
 package com.blueoptima.kuber;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.NavigableMap;
 
 public interface TimeSeriesDao {
@@ -17,9 +15,12 @@ public interface TimeSeriesDao {
     //stronger
 
     List<CurrencyRate> getCurrencies(long utc);
+
     NavigableMap<Long, List<CurrencyRate>> getCurrencyInRange(long startTime, long endTime);
+
     //scrollable
-    Map<Long, CurrencyRate> getParticularCurrencyInRange(String id, long startTime, long endTime);
+    NavigableMap<Long, CurrencyRate> getParticularCurrencyInRange(int id, long startTime, long endTime);
+
     int persist(long utc, List<CurrencyRate> currencies);
 
 
